@@ -1,0 +1,240 @@
+<html>
+    <head>
+        <title>Sample Dapp</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    </head>
+    <body>
+        <div class="container">
+            <nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand" href="/">
+                    <span class="navbar-brand mb-0 h1">Sample Dapp</span>
+                </a>
+                <div class="my-2 my-sm-0">
+                    <button class="btn btn-primary" id="login_button" type="button">Login web3</button>
+                    <button class="btn btn-outline-danger" id="logout_button" type="button">Logout web3</button>
+                </div>
+            </nav>
+            <br />
+            <div class="card">
+                <div class="card-body">
+                    <span>window.ethereum enable: </span>
+                    <span id='ethereum_enable'></span>
+                </div>
+            </div>
+            <div class="card-group">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">web3 defaultAccount</h5>
+                        <span id='web3_defaultAccount'>---</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">web3 accounts</h5>
+                        <span id='web3_accounts'>---</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">web3 coinbase</h5>
+                        <span id='web3_coinbase'>---</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">netwrok Type / Id</h5>
+                        <span id='web3_netType'>---</span>                        
+                        <span>/</span>
+                        <span id='web3_netId'>---</span>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="card-deck">
+                <div class="card">
+                    <div class="card-header">Sign Message</div>
+                    <div class="card-body">
+                        <div class="input-group mb-3">
+                            <input
+                                id="sign_input"
+                                type="text"
+                                class="form-control"
+                                placeholder="message"
+                                aria-label="message"
+                                aria-describedby="web3_sign_button">
+                            <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" id="web3_sign_button">Sign</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <span>Sign Result: </span>
+                        <span id='web3_sign_result'></span>                        
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">Personal Sign Message</div>
+                    <div class="card-body">
+                        <div class="input-group mb-3">
+                            <input
+                                id="personal_sign_input"
+                                type="text"
+                                class="form-control"
+                                placeholder="message"
+                                aria-label="message"
+                                aria-describedby="web3_personal_sign_button">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button" id="web3_personal_sign_button">Sign</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <span>Sign Result: </span>
+                        <span id='web3_personal_sign_result'></span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">Send Transaction</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Recipient Address</h5>
+                        <textarea class="form-control" aria-label="With textarea" id="web3_send_tx_address"></textarea>
+                        <br />
+                        <h5 class="card-title">ETH Amount</h5>
+                        <div class="input-group mb-3">
+                            <input
+                                id="web3_send_tx_amount"
+                                type="text"
+                                class="form-control"
+                                placeholder="ETH send amount"
+                                aria-label="ETH send amount"
+                                aria-describedby="web3_send_tx_button">
+                            <div class="input-group-append">
+                                <button
+                                    class="btn btn-primary"
+                                    type="button"
+                                    id="web3_send_tx_button">
+                                    Send
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <span>Transaction Hash: </span>
+                        <span id='web3_tx_hash'></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+<link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+    integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+    crossorigin="anonymous">
+<script
+    src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous">
+</script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+    integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+    crossorigin="anonymous">
+</script>
+<script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+    integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+    crossorigin="anonymous">
+</script>
+<script src='./static/dist/dapp-sdk.bundle.js'></script>
+
+<script>
+// Web3 Login
+$("#login_button").click(() => {
+    window.ethereum.enable().then(() => {
+        $("#login_button").hide();
+
+        $("#ethereum_enable").html('SUCCESSED').addClass('badge badge-success');
+        $("#web3_defaultAccount").html(web3.eth.defaultAccount);
+
+        web3.eth.getCoinbase((err, account) => {
+            $('#web3_coinbase').html(account);
+        })
+
+        web3.eth.getAccounts((err, accounts) => {
+            $('#web3_accounts').html(accounts);
+        })
+        web3.eth.net.getId().then(id => {
+            $("#web3_netId").html(id);
+        })
+        web3.eth.net.getNetworkType().then(type => {
+            $("#web3_netType").html(type);
+        });
+
+    }).catch((e) => {
+        $("#ethereum_enable").html('FAILED').addClass('badge badge-danger');
+    });
+});
+
+$("#logout_button").click(() => {
+    if(!(typeof window.ethereum.logout === 'function')) {
+        alert('Please use wallet connect.');
+    } else {
+        window.ethereum.logout().then((res) => {
+            console.log('logout done. res: ', res);
+        }).catch((err) => {
+            alert(err);
+        });
+    }
+});
+// Web3 Sign
+$("#web3_sign_button").click(() => {
+    const signMessage = $('#sign_input').val();
+    if(!(web3 && web3.eth && web3.eth.defaultAccount)) {
+        alert("No accounts exposed!");
+    } else {
+        web3.eth.sign(signMessage, web3.eth.defaultAccount, (err, result) => {
+            if(err) {
+                alert('You cancel the signature request.');
+            }
+            $('#web3_sign_result').html(result);
+        });
+    }
+});
+
+// Web3 Personal Sign
+$("#web3_personal_sign_button").click(() => {
+    const personalSignMessage = $('#personal_sign_input').val();
+    if(!(web3 && web3.eth && web3.eth.defaultAccount)) {
+        alert("No accounts exposed!");
+    } else {
+        web3.eth.personal.sign(personalSignMessage, web3.eth.defaultAccount, '', (err, result) => {
+            if(err) {
+                alert('You cancel the signature request');
+            }
+            $('#web3_personal_sign_result').html(result);
+        });
+    }
+});
+
+// Web3 Send Transaction
+$("#web3_send_tx_button").click(() => {
+    const recipient = $('#web3_send_tx_address').val();
+    const sendAmount = $('#web3_send_tx_amount').val();
+    const WEI = 1000000000000000000;
+    const transactionObject = {
+        from: web3.eth.defaultAccount,
+        to: recipient,
+        value: (sendAmount* WEI).toString(),
+        gas: 21000,
+    };
+    web3.eth.sendTransaction(transactionObject)
+    .on('transactionHash', (hash) => {
+        $('#web3_tx_hash').html(hash);
+    })
+    .on('error', (err) => {
+        alert(err);
+    });
+});
+</script>

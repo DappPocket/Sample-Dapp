@@ -1,0 +1,22 @@
+{
+  "name": "sample-dapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
