@@ -164,12 +164,12 @@ $("#login_button").click(() => {
         web3.eth.getAccounts((err, accounts) => {
             $('#web3_accounts').html(accounts);
         })
-        web3.eth.net.getId().then(id => {
-            $("#web3_netId").html(id);
-        })
-        web3.eth.net.getNetworkType().then(type => {
-            $("#web3_netType").html(type);
-        });
+        // web3.eth.net.getId().then(id => {
+        //     $("#web3_netId").html(id);
+        // })
+        // web3.eth.net.getNetworkType().then(type => {
+        //     $("#web3_netType").html(type);
+        // });
 
     }).catch((e) => {
         $("#ethereum_enable").html('FAILED').addClass('badge badge-danger');
